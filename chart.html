@@ -1,4 +1,4 @@
-<style>
+  <style>
   .tn-tabs {
     max-width: 900px;
     margin: 0 auto 32px;
@@ -188,7 +188,7 @@
     background: linear-gradient(90deg, #f1f5f9 0%, #e5e7eb 100%);
   }
 
-  /* Point differential – same blue palette, stronger for bigger swings */
+  /* Point differential */
   .diff-pill {
     display: inline-flex;
     align-items: center;
@@ -208,6 +208,22 @@
   }
   .diff-soft {
     background: linear-gradient(90deg, #f1f5f9 0%, #e5e7eb 100%);
+  }
+
+  /* Thanksgiving Success Score */
+  .score-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 64px;
+    padding: 3px 11px;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    color: #064e3b;
+    border: 1px solid rgba(52, 211, 153, 0.6);
+    background: linear-gradient(90deg, #ecfdf5 0%, #bbf7d0 100%);
   }
 
   .note {
@@ -259,6 +275,7 @@
           <th>Record</th>
           <th>Win %</th>
           <th>Point diff.</th>
+          <th>Score</th>
           <th>Blowouts (17+)</th>
         </tr>
         </thead>
@@ -275,6 +292,7 @@
           <td class="num">38–44–2</td>
           <td><span class="win-badge win-low">45%</span></td>
           <td><span class="diff-pill diff-soft">-20</span></td>
+          <td><span class="score-pill">74.2</span></td>
           <td class="num">9</td>
         </tr>
         <tr>
@@ -289,6 +307,7 @@
           <td class="num">34–22–1</td>
           <td><span class="win-badge win-high">60%</span></td>
           <td><span class="diff-pill diff-strong">+228</span></td>
+          <td><span class="score-pill">67.5</span></td>
           <td class="num">11</td>
         </tr>
         <tr>
@@ -303,6 +322,7 @@
           <td class="num">13–16–1</td>
           <td><span class="win-badge win-low">43%</span></td>
           <td><span class="diff-pill diff-soft">-50</span></td>
+          <td><span class="score-pill">41.7</span></td>
           <td class="num">3</td>
         </tr>
         <tr>
@@ -317,6 +337,7 @@
           <td class="num">6–1</td>
           <td><span class="win-badge win-high">86%</span></td>
           <td><span class="diff-pill diff-strong">+69</span></td>
+          <td><span class="score-pill">38.6</span></td>
           <td class="num">3</td>
         </tr>
         <tr>
@@ -331,6 +352,7 @@
           <td class="num">14–12</td>
           <td><span class="win-badge win-mid">54%</span></td>
           <td><span class="diff-pill">+19</span></td>
+          <td><span class="score-pill">37.8</span></td>
           <td class="num">3</td>
         </tr>
         <tr>
@@ -345,6 +367,7 @@
           <td class="num">6–4–1</td>
           <td><span class="win-badge win-mid">55%</span></td>
           <td><span class="diff-pill">+44</span></td>
+          <td><span class="score-pill">37.5</span></td>
           <td class="num">3</td>
         </tr>
         <tr>
@@ -359,6 +382,7 @@
           <td class="num">5–3</td>
           <td><span class="win-badge win-high">63%</span></td>
           <td><span class="diff-pill">+52</span></td>
+          <td><span class="score-pill">33.3</span></td>
           <td class="num">2</td>
         </tr>
         <tr>
@@ -373,6 +397,7 @@
           <td class="num">2–1–1</td>
           <td><span class="win-badge win-mid">50%</span></td>
           <td><span class="diff-pill">+29</span></td>
+          <td><span class="score-pill">33.2</span></td>
           <td class="num">2</td>
         </tr>
         <tr>
@@ -387,6 +412,7 @@
           <td class="num">7–2</td>
           <td><span class="win-badge win-high">78%</span></td>
           <td><span class="diff-pill diff-strong">+83</span></td>
+          <td><span class="score-pill">32.7</span></td>
           <td class="num">2</td>
         </tr>
         <tr>
@@ -401,13 +427,14 @@
           <td class="num">4–2–1</td>
           <td><span class="win-badge win-mid">57%</span></td>
           <td><span class="diff-pill">+54</span></td>
+          <td><span class="score-pill">32.7</span></td>
           <td class="num">3</td>
         </tr>
         </tbody>
       </table>
     </div>
     <div class="note">
-      Based on every NFL Thanksgiving game from 1934–2024. Rankings use a combined score of win percentage, total point differential and 17+ point wins.  
+      Based on every NFL Thanksgiving game from 1934–2024. The Thanksgiving Success Score (0–100) combines win percentage, point differential, blowout wins (17+ points) and streak/consistency metrics.  
       Source: Action Network — <a href="https://www.actionnetwork.com/general/thanksgiving-nfl-all-time-winners-index">Full Thanksgiving Index</a>
     </div>
   </div>
@@ -424,6 +451,7 @@
           <th>Record</th>
           <th>Win %</th>
           <th>Point diff.</th>
+          <th>Score</th>
           <th>Blowouts (17+)</th>
         </tr>
         </thead>
@@ -440,6 +468,7 @@
           <td class="num">0–1</td>
           <td><span class="win-badge win-low">0%</span></td>
           <td><span class="diff-pill diff-soft">-28</span></td>
+          <td><span class="score-pill">4.7</span></td>
           <td class="num">0</td>
         </tr>
         <tr>
@@ -454,6 +483,7 @@
           <td class="num">0–1</td>
           <td><span class="win-badge win-low">0%</span></td>
           <td><span class="diff-pill diff-soft">-16</span></td>
+          <td><span class="score-pill">7.3</span></td>
           <td class="num">0</td>
         </tr>
         <tr>
@@ -468,6 +498,7 @@
           <td class="num">2–3</td>
           <td><span class="win-badge win-low">40%</span></td>
           <td><span class="diff-pill diff-soft">-54</span></td>
+          <td><span class="score-pill">13.9</span></td>
           <td class="num">0</td>
         </tr>
         <tr>
@@ -482,6 +513,7 @@
           <td class="num">2–11</td>
           <td><span class="win-badge win-low">15%</span></td>
           <td><span class="diff-pill diff-soft">-199</span></td>
+          <td><span class="score-pill">16.9</span></td>
           <td class="num">0</td>
         </tr>
         <tr>
@@ -496,13 +528,14 @@
           <td class="num">4–4</td>
           <td><span class="win-badge win-mid">50%</span></td>
           <td><span class="diff-pill diff-soft">-59</span></td>
+          <td><span class="score-pill">20.0</span></td>
           <td class="num">0</td>
         </tr>
         </tbody>
       </table>
     </div>
     <div class="note">
-      Bottom five teams have the lowest combined scores once win percentage, point margin and 17+ point wins are weighted together. Rank 1 here marks the weakest overall Thanksgiving record.  
+      Bottom five teams have the lowest Thanksgiving Success Scores once win percentage, point margin, blowout wins and streak/consistency metrics are weighted together. Rank 1 here marks the weakest overall Thanksgiving record.  
       Source: Action Network — <a href="https://www.actionnetwork.com/general/thanksgiving-nfl-all-time-winners-index">Full Thanksgiving Index</a>
     </div>
   </div>
@@ -571,4 +604,3 @@ function toggleEmbedPanel() {
   panel.style.display = (panel.style.display === 'block' ? 'none' : 'block');
 }
 </script>
-
