@@ -1,4 +1,4 @@
-  <style>
+<style>
   .tn-tabs {
     max-width: 900px;
     margin: 0 auto 32px;
@@ -25,7 +25,6 @@
     opacity: 0.85;
   }
 
-  /* Tab buttons */
   .tn-tab-buttons {
     display: inline-flex;
     border-radius: 999px;
@@ -53,7 +52,6 @@
     box-shadow: 0 0 0 1px #e5e7eb;
   }
 
-  /* Tab containers */
   .tn-tab {
     display: none;
   }
@@ -61,7 +59,6 @@
     display: block;
   }
 
-  /* Table wrapper */
   .tn-table-wrapper {
     border-radius: 10px;
     border: 1px solid #cbd5e1;
@@ -125,7 +122,6 @@
     font-variant-numeric: tabular-nums;
   }
 
-  /* Rank badges */
   .rank-badge {
     font-weight: 600;
     font-size: 0.78rem;
@@ -163,7 +159,6 @@
     color: #b91c1c;
   }
 
-  /* Win% – single blue palette, intensity by tier */
   .win-badge {
     display: inline-flex;
     align-items: center;
@@ -188,7 +183,6 @@
     background: linear-gradient(90deg, #f1f5f9 0%, #e5e7eb 100%);
   }
 
-  /* Point differential */
   .diff-pill {
     display: inline-flex;
     align-items: center;
@@ -210,12 +204,12 @@
     background: linear-gradient(90deg, #f1f5f9 0%, #e5e7eb 100%);
   }
 
-  /* Thanksgiving Success Score */
+  /* Success Score pill */
   .score-pill {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 64px;
+    min-width: 80px;
     padding: 3px 11px;
     border-radius: 999px;
     font-size: 0.76rem;
@@ -275,8 +269,8 @@
           <th>Record</th>
           <th>Win %</th>
           <th>Point diff.</th>
-          <th>Score</th>
-          <th>Blowouts (17+)</th>
+          <th>Blowout wins<br>(17+ pts)</th>
+          <th>Success Score<br>(0–100)</th>
         </tr>
         </thead>
         <tbody>
@@ -292,8 +286,8 @@
           <td class="num">38–44–2</td>
           <td><span class="win-badge win-low">45%</span></td>
           <td><span class="diff-pill diff-soft">-20</span></td>
-          <td><span class="score-pill">74.2</span></td>
           <td class="num">9</td>
+          <td><span class="score-pill">74.2</span></td>
         </tr>
         <tr>
           <td><span class="rank-badge rank-silver">2</span></td>
@@ -307,8 +301,8 @@
           <td class="num">34–22–1</td>
           <td><span class="win-badge win-high">60%</span></td>
           <td><span class="diff-pill diff-strong">+228</span></td>
-          <td><span class="score-pill">67.5</span></td>
           <td class="num">11</td>
+          <td><span class="score-pill">67.5</span></td>
         </tr>
         <tr>
           <td><span class="rank-badge rank-bronze">3</span></td>
@@ -322,8 +316,8 @@
           <td class="num">13–16–1</td>
           <td><span class="win-badge win-low">43%</span></td>
           <td><span class="diff-pill diff-soft">-50</span></td>
-          <td><span class="score-pill">41.7</span></td>
           <td class="num">3</td>
+          <td><span class="score-pill">41.7</span></td>
         </tr>
         <tr>
           <td><span class="rank-badge">4</span></td>
@@ -337,8 +331,8 @@
           <td class="num">6–1</td>
           <td><span class="win-badge win-high">86%</span></td>
           <td><span class="diff-pill diff-strong">+69</span></td>
-          <td><span class="score-pill">38.6</span></td>
           <td class="num">3</td>
+          <td><span class="score-pill">38.6</span></td>
         </tr>
         <tr>
           <td><span class="rank-badge">5</span></td>
@@ -352,8 +346,8 @@
           <td class="num">14–12</td>
           <td><span class="win-badge win-mid">54%</span></td>
           <td><span class="diff-pill">+19</span></td>
-          <td><span class="score-pill">37.8</span></td>
           <td class="num">3</td>
+          <td><span class="score-pill">37.8</span></td>
         </tr>
         <tr>
           <td><span class="rank-badge">6</span></td>
@@ -367,8 +361,8 @@
           <td class="num">6–4–1</td>
           <td><span class="win-badge win-mid">55%</span></td>
           <td><span class="diff-pill">+44</span></td>
-          <td><span class="score-pill">37.5</span></td>
           <td class="num">3</td>
+          <td><span class="score-pill">37.5</span></td>
         </tr>
         <tr>
           <td><span class="rank-badge">7</span></td>
@@ -382,8 +376,8 @@
           <td class="num">5–3</td>
           <td><span class="win-badge win-high">63%</span></td>
           <td><span class="diff-pill">+52</span></td>
-          <td><span class="score-pill">33.3</span></td>
           <td class="num">2</td>
+          <td><span class="score-pill">33.3</span></td>
         </tr>
         <tr>
           <td><span class="rank-badge">8</span></td>
@@ -397,8 +391,8 @@
           <td class="num">2–1–1</td>
           <td><span class="win-badge win-mid">50%</span></td>
           <td><span class="diff-pill">+29</span></td>
-          <td><span class="score-pill">33.2</span></td>
           <td class="num">2</td>
+          <td><span class="score-pill">33.2</span></td>
         </tr>
         <tr>
           <td><span class="rank-badge">9</span></td>
@@ -412,8 +406,8 @@
           <td class="num">7–2</td>
           <td><span class="win-badge win-high">78%</span></td>
           <td><span class="diff-pill diff-strong">+83</span></td>
-          <td><span class="score-pill">32.7</span></td>
           <td class="num">2</td>
+          <td><span class="score-pill">32.7</span></td>
         </tr>
         <tr>
           <td><span class="rank-badge">10</span></td>
@@ -427,14 +421,14 @@
           <td class="num">4–2–1</td>
           <td><span class="win-badge win-mid">57%</span></td>
           <td><span class="diff-pill">+54</span></td>
-          <td><span class="score-pill">32.7</span></td>
           <td class="num">3</td>
+          <td><span class="score-pill">32.7</span></td>
         </tr>
         </tbody>
       </table>
     </div>
     <div class="note">
-      Based on every NFL Thanksgiving game from 1934–2024. The Thanksgiving Success Score (0–100) combines win percentage, point differential, blowout wins (17+ points) and streak/consistency metrics.  
+      Thanksgiving Success Score is a 0–100 index combining win percentage, point differential, blowout wins (17+ points), and streak/consistency metrics. Higher scores indicate stronger long-term Thanksgiving performance.  
       Source: Action Network — <a href="https://www.actionnetwork.com/general/thanksgiving-nfl-all-time-winners-index">Full Thanksgiving Index</a>
     </div>
   </div>
@@ -451,8 +445,8 @@
           <th>Record</th>
           <th>Win %</th>
           <th>Point diff.</th>
-          <th>Score</th>
-          <th>Blowouts (17+)</th>
+          <th>Blowout wins<br>(17+ pts)</th>
+          <th>Success Score<br>(0–100)</th>
         </tr>
         </thead>
         <tbody>
@@ -468,8 +462,8 @@
           <td class="num">0–1</td>
           <td><span class="win-badge win-low">0%</span></td>
           <td><span class="diff-pill diff-soft">-28</span></td>
-          <td><span class="score-pill">4.7</span></td>
           <td class="num">0</td>
+          <td><span class="score-pill">4.7</span></td>
         </tr>
         <tr>
           <td><span class="rank-badge rank-bottom">2</span></td>
@@ -483,8 +477,8 @@
           <td class="num">0–1</td>
           <td><span class="win-badge win-low">0%</span></td>
           <td><span class="diff-pill diff-soft">-16</span></td>
-          <td><span class="score-pill">7.3</span></td>
           <td class="num">0</td>
+          <td><span class="score-pill">7.3</span></td>
         </tr>
         <tr>
           <td><span class="rank-badge rank-bottom">3</span></td>
@@ -498,8 +492,8 @@
           <td class="num">2–3</td>
           <td><span class="win-badge win-low">40%</span></td>
           <td><span class="diff-pill diff-soft">-54</span></td>
-          <td><span class="score-pill">13.9</span></td>
           <td class="num">0</td>
+          <td><span class="score-pill">13.9</span></td>
         </tr>
         <tr>
           <td><span class="rank-badge rank-bottom">4</span></td>
@@ -513,8 +507,8 @@
           <td class="num">2–11</td>
           <td><span class="win-badge win-low">15%</span></td>
           <td><span class="diff-pill diff-soft">-199</span></td>
-          <td><span class="score-pill">16.9</span></td>
           <td class="num">0</td>
+          <td><span class="score-pill">16.9</span></td>
         </tr>
         <tr>
           <td><span class="rank-badge rank-bottom">5</span></td>
@@ -528,14 +522,14 @@
           <td class="num">4–4</td>
           <td><span class="win-badge win-mid">50%</span></td>
           <td><span class="diff-pill diff-soft">-59</span></td>
-          <td><span class="score-pill">20.0</span></td>
           <td class="num">0</td>
+          <td><span class="score-pill">20.0</span></td>
         </tr>
         </tbody>
       </table>
     </div>
     <div class="note">
-      Bottom five teams have the lowest Thanksgiving Success Scores once win percentage, point margin, blowout wins and streak/consistency metrics are weighted together. Rank 1 here marks the weakest overall Thanksgiving record.  
+      These five teams hold the lowest Thanksgiving Success Scores once win percentage, point margin, blowout wins and consistency metrics are combined. Rank 1 here marks the weakest overall Thanksgiving record in the index.  
       Source: Action Network — <a href="https://www.actionnetwork.com/general/thanksgiving-nfl-all-time-winners-index">Full Thanksgiving Index</a>
     </div>
   </div>
@@ -550,57 +544,4 @@
     tabs[index].classList.add('active');
     buttons[index].classList.add('active');
   }
-</script>
-
-<!-- EMBED CODE PANEL -->
-<div class="tn-embed-container" style="max-width:900px;margin:22px auto 40px;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;">
-
-  <button id="embedToggleBtn"
-    style="
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      padding:7px 14px;
-      border-radius:999px;
-      border:1px solid #cbd5e1;
-      background:#ffffff;
-      cursor:pointer;
-      font-size:13px;
-      color:#0f172a;
-      transition:0.15s ease;
-    "
-    onclick="toggleEmbedPanel()"
-  >
-    Get embed code
-    <span style="font-size:11px;opacity:.65;">▼</span>
-  </button>
-
-  <div id="embedPanel" style="display:none;margin-top:12px;">
-    <p style="font-size:12px;color:#6b7280;margin-bottom:4px;">
-      Copy and paste this into any article or webpage:
-    </p>
-
-    <pre style="
-      background:#f8fafc;
-      border:1px solid #e5e7eb;
-      padding:12px;
-      border-radius:8px;
-      font-size:12px;
-      overflow-x:auto;
-      white-space:pre-wrap;
-    "><code>&lt;iframe 
-  src="https://aharris-jpg.github.io/tg-winners-index/chart.html" 
-  width="100%" 
-  height="980" 
-  style="border:0;border-radius:8px;overflow:hidden;"&gt;
-&lt;/iframe&gt;</code></pre>
-  </div>
-
-</div>
-
-<script>
-function toggleEmbedPanel() {
-  const panel = document.getElementById('embedPanel');
-  panel.style.display = (panel.style.display === 'block' ? 'none' : 'block');
-}
 </script>
