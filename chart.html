@@ -1,0 +1,520 @@
+<style>
+  .tn-tabs {
+    max-width: 900px;
+    margin: 0 auto 32px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #111827;
+    font-size: 14px;
+  }
+
+  .tn-title {
+    margin-bottom: 10px;
+  }
+
+  .tn-title h2 {
+    margin: 0 0 2px;
+    font-size: 1.38rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .tn-title p {
+    margin: 0;
+    font-size: 0.86rem;
+    color: #6b7280;
+    opacity: 0.85;
+  }
+
+  /* Tab buttons */
+  .tn-tab-buttons {
+    display: inline-flex;
+    border-radius: 999px;
+    background: #f3f4f6;
+    padding: 3px;
+    margin: 14px 0 12px;
+  }
+
+  .tn-tab-buttons button {
+    background: transparent;
+    border: none;
+    padding: 6px 14px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #6b7280;
+    border-radius: 999px;
+    transition: all 0.12s ease-out;
+    white-space: nowrap;
+  }
+
+  .tn-tab-buttons button.active {
+    background: #ffffff;
+    color: #111827;
+    font-weight: 600;
+    box-shadow: 0 0 0 1px #e5e7eb;
+  }
+
+  /* Tab containers */
+  .tn-tab {
+    display: none;
+  }
+  .tn-tab.active {
+    display: block;
+  }
+
+  /* Table wrapper */
+  .tn-table-wrapper {
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 2px 7px rgba(15, 23, 42, 0.06);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.86rem;
+  }
+
+  thead {
+    background: #f8fafc;
+  }
+
+  th {
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    color: #6b7280;
+    letter-spacing: 0.05em;
+    padding: 8px 10px;
+    border-bottom: 1px solid #e5e7eb;
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #f3f4f6;
+    white-space: nowrap;
+  }
+
+  tbody tr:nth-child(even) {
+    background: #f9fafb;
+  }
+
+  tbody tr:hover {
+    background: #eff6ff;
+  }
+
+  .team-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .team-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .team-meta {
+    font-size: 0.74rem;
+    color: #6b7280;
+  }
+
+  .num {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Rank badges */
+  .rank-badge {
+    font-weight: 600;
+    font-size: 0.78rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 24px;
+    padding: 1px 7px;
+    border-radius: 999px;
+    border: 1px solid #e5e7eb;
+    background: #f3f4f6;
+  }
+
+  .rank-gold {
+    background: #fef3c7;
+    border-color: #facc15;
+    color: #92400e;
+  }
+
+  .rank-silver {
+    background: #e5e7eb;
+    border-color: #9ca3af;
+    color: #374151;
+  }
+
+  .rank-bronze {
+    background: #fed7aa;
+    border-color: #fb923c;
+    color: #7c2d12;
+  }
+
+  .rank-bottom {
+    background: #fee2e2;
+    border-color: #fecaca;
+    color: #b91c1c;
+  }
+
+  /* Win% – single blue palette, intensity by tier */
+  .win-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 52px;
+    padding: 3px 11px;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    color: #0f172a;
+    border: 1px solid rgba(148, 163, 184, 0.5);
+    background: linear-gradient(90deg, #eff6ff 0%, #e0f2fe 100%);
+  }
+  .win-high {
+    background: linear-gradient(90deg, #dbeafe 0%, #bfdbfe 100%);
+  }
+  .win-mid {
+    background: linear-gradient(90deg, #e5f0ff 0%, #dbeafe 100%);
+  }
+  .win-low {
+    background: linear-gradient(90deg, #f1f5f9 0%, #e5e7eb 100%);
+  }
+
+  /* Point differential – same blue palette, stronger for bigger swings */
+  .diff-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 68px;
+    padding: 3px 11px;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+    color: #0f172a;
+    border: 1px solid rgba(148, 163, 184, 0.55);
+    background: linear-gradient(90deg, #eff6ff 0%, #e0f2fe 100%);
+  }
+  .diff-strong {
+    background: linear-gradient(90deg, #dbeafe 0%, #bfdbfe 100%);
+  }
+  .diff-soft {
+    background: linear-gradient(90deg, #f1f5f9 0%, #e5e7eb 100%);
+  }
+
+  .note {
+    font-size: 0.76rem;
+    color: #6b7280;
+    margin-top: 8px;
+    padding-bottom: 10px;
+    line-height: 1.35;
+  }
+
+  .note a {
+    color: #2563eb;
+    text-decoration: none;
+  }
+  .note a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 640px) {
+    .tn-tabs {
+      font-size: 13px;
+    }
+    th, td {
+      padding: 7px 8px;
+    }
+  }
+</style>
+
+<div class="tn-tabs">
+  <div class="tn-title">
+    <h2>Thanksgiving NFL All-Time Winners Index</h2>
+    <p>Top 10 and bottom 5 NFL teams by all-time Thanksgiving performance, 1934–2024.</p>
+  </div>
+
+  <div class="tn-tab-buttons">
+    <button class="active" onclick="showTnTab(0)">Top 10 Teams</button>
+    <button onclick="showTnTab(1)">Bottom 5 Teams</button>
+  </div>
+
+  <!-- TOP 10 TAB -->
+  <div class="tn-tab active">
+    <div class="tn-table-wrapper">
+      <table>
+        <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Team</th>
+          <th>Games</th>
+          <th>Record</th>
+          <th>Win %</th>
+          <th>Point diff.</th>
+          <th>Blowouts (17+)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><span class="rank-badge rank-gold">1</span></td>
+          <td>
+            <div class="team-cell">
+              <span class="team-name">Detroit Lions</span>
+              <span class="team-meta">First Thanksgiving: 1935 • Latest: 2024</span>
+            </div>
+          </td>
+          <td class="num">84</td>
+          <td class="num">38–44–2</td>
+          <td><span class="win-badge win-low">45%</span></td>
+          <td><span class="diff-pill diff-soft">-20</span></td>
+          <td class="num">9</td>
+        </tr>
+        <tr>
+          <td><span class="rank-badge rank-silver">2</span></td>
+          <td>
+            <div class="team-cell">
+              <span class="team-name">Dallas Cowboys</span>
+              <span class="team-meta">First Thanksgiving: 1966 • Latest: 2024</span>
+            </div>
+          </td>
+          <td class="num">57</td>
+          <td class="num">34–22–1</td>
+          <td><span class="win-badge win-high">60%</span></td>
+          <td><span class="diff-pill diff-strong">+228</span></td>
+          <td class="num">11</td>
+        </tr>
+        <tr>
+          <td><span class="rank-badge rank-bronze">3</span></td>
+          <td>
+            <div class="team-cell">
+              <span class="team-name">Green Bay Packers</span>
+              <span class="team-meta">First Thanksgiving: 1930 • Latest: 2024</span>
+            </div>
+          </td>
+          <td class="num">30</td>
+          <td class="num">13–16–1</td>
+          <td><span class="win-badge win-low">43%</span></td>
+          <td><span class="diff-pill diff-soft">-50</span></td>
+          <td class="num">3</td>
+        </tr>
+        <tr>
+          <td><span class="rank-badge">4</span></td>
+          <td>
+            <div class="team-cell">
+              <span class="team-name">Philadelphia Eagles</span>
+              <span class="team-meta">First Thanksgiving: 1939 • Latest: 2015</span>
+            </div>
+          </td>
+          <td class="num">7</td>
+          <td class="num">6–1</td>
+          <td><span class="win-badge win-high">86%</span></td>
+          <td><span class="diff-pill diff-strong">+69</span></td>
+          <td class="num">3</td>
+        </tr>
+        <tr>
+          <td><span class="rank-badge">5</span></td>
+          <td>
+            <div class="team-cell">
+              <span class="team-name">Chicago Bears</span>
+              <span class="team-meta">First Thanksgiving: 1930 • Latest: 2024</span>
+            </div>
+          </td>
+          <td class="num">26</td>
+          <td class="num">14–12</td>
+          <td><span class="win-badge win-mid">54%</span></td>
+          <td><span class="diff-pill">+19</span></td>
+          <td class="num">3</td>
+        </tr>
+        <tr>
+          <td><span class="rank-badge">6</span></td>
+          <td>
+            <div class="team-cell">
+              <span class="team-name">Buffalo Bills</span>
+              <span class="team-meta">First Thanksgiving: 1961 • Latest: 2022</span>
+            </div>
+          </td>
+          <td class="num">11</td>
+          <td class="num">6–4–1</td>
+          <td><span class="win-badge win-mid">55%</span></td>
+          <td><span class="diff-pill">+44</span></td>
+          <td class="num">3</td>
+        </tr>
+        <tr>
+          <td><span class="rank-badge">7</span></td>
+          <td>
+            <div class="team-cell">
+              <span class="team-name">Miami Dolphins</span>
+              <span class="team-meta">First Thanksgiving: 1973 • Latest: 2024</span>
+            </div>
+          </td>
+          <td class="num">8</td>
+          <td class="num">5–3</td>
+          <td><span class="win-badge win-high">63%</span></td>
+          <td><span class="diff-pill">+52</span></td>
+          <td class="num">2</td>
+        </tr>
+        <tr>
+          <td><span class="rank-badge">8</span></td>
+          <td>
+            <div class="team-cell">
+              <span class="team-name">Indianapolis Colts</span>
+              <span class="team-meta">First Thanksgiving: 1965 • Latest: 2016</span>
+            </div>
+          </td>
+          <td class="num">4</td>
+          <td class="num">2–1–1</td>
+          <td><span class="win-badge win-mid">50%</span></td>
+          <td><span class="diff-pill">+29</span></td>
+          <td class="num">2</td>
+        </tr>
+        <tr>
+          <td><span class="rank-badge">9</span></td>
+          <td>
+            <div class="team-cell">
+              <span class="team-name">Minnesota Vikings</span>
+              <span class="team-meta">First Thanksgiving: 1969 • Latest: 2022</span>
+            </div>
+          </td>
+          <td class="num">9</td>
+          <td class="num">7–2</td>
+          <td><span class="win-badge win-high">78%</span></td>
+          <td><span class="diff-pill diff-strong">+83</span></td>
+          <td class="num">2</td>
+        </tr>
+        <tr>
+          <td><span class="rank-badge">10</span></td>
+          <td>
+            <div class="team-cell">
+              <span class="team-name">San Francisco 49ers</span>
+              <span class="team-meta">First Thanksgiving: 1947 • Latest: 2023</span>
+            </div>
+          </td>
+          <td class="num">7</td>
+          <td class="num">4–2–1</td>
+          <td><span class="win-badge win-mid">57%</span></td>
+          <td><span class="diff-pill">+54</span></td>
+          <td class="num">3</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      Based on every NFL Thanksgiving game from 1934–2024. Rankings use a combined score of win percentage, total point differential and 17+ point wins.  
+      Source: Action Network — <a href="https://www.actionnetwork.com/general/thanksgiving-nfl-all-time-winners-index">Full Thanksgiving Index</a>
+    </div>
+  </div>
+
+  <!-- BOTTOM 5 TAB -->
+  <div class="tn-tab">
+    <div class="tn-table-wrapper">
+      <table>
+        <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Team</th>
+          <th>Games</th>
+          <th>Record</th>
+          <th>Win %</th>
+          <th>Point diff.</th>
+          <th>Blowouts (17+)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><span class="rank-badge rank-bottom">1</span></td>
+          <td>
+            <div class="team-cell">
+              <span class="team-name">Tampa Bay Buccaneers</span>
+              <span class="team-meta">1 Thanksgiving game</span>
+            </div>
+          </td>
+          <td class="num">1</td>
+          <td class="num">0–1</td>
+          <td><span class="win-badge win-low">0%</span></td>
+          <td><span class="diff-pill diff-soft">-28</span></td>
+          <td class="num">0</td>
+        </tr>
+        <tr>
+          <td><span class="rank-badge rank-bottom">2</span></td>
+          <td>
+            <div class="team-cell">
+              <span class="team-name">Cincinnati Bengals</span>
+              <span class="team-meta">1 Thanksgiving game</span>
+            </div>
+          </td>
+          <td class="num">1</td>
+          <td class="num">0–1</td>
+          <td><span class="win-badge win-low">0%</span></td>
+          <td><span class="diff-pill diff-soft">-16</span></td>
+          <td class="num">0</td>
+        </tr>
+        <tr>
+          <td><span class="rank-badge rank-bottom">3</span></td>
+          <td>
+            <div class="team-cell">
+              <span class="team-name">Seattle Seahawks</span>
+              <span class="team-meta">5 Thanksgiving games</span>
+            </div>
+          </td>
+          <td class="num">5</td>
+          <td class="num">2–3</td>
+          <td><span class="win-badge win-low">40%</span></td>
+          <td><span class="diff-pill diff-soft">-54</span></td>
+          <td class="num">0</td>
+        </tr>
+        <tr>
+          <td><span class="rank-badge rank-bottom">4</span></td>
+          <td>
+            <div class="team-cell">
+              <span class="team-name">Arizona Cardinals</span>
+              <span class="team-meta">13 Thanksgiving games</span>
+            </div>
+          </td>
+          <td class="num">13</td>
+          <td class="num">2–11</td>
+          <td><span class="win-badge win-low">15%</span></td>
+          <td><span class="diff-pill diff-soft">-199</span></td>
+          <td class="num">0</td>
+        </tr>
+        <tr>
+          <td><span class="rank-badge rank-bottom">5</span></td>
+          <td>
+            <div class="team-cell">
+              <span class="team-name">New York Jets</span>
+              <span class="team-meta">8 Thanksgiving games</span>
+            </div>
+          </td>
+          <td class="num">8</td>
+          <td class="num">4–4</td>
+          <td><span class="win-badge win-mid">50%</span></td>
+          <td><span class="diff-pill diff-soft">-59</span></td>
+          <td class="num">0</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      Bottom five teams have the lowest combined scores once win percentage, point margin and 17+ point wins are weighted together. Rank 1 here marks the weakest overall Thanksgiving record.  
+      Source: Action Network — <a href="https://www.actionnetwork.com/general/thanksgiving-nfl-all-time-winners-index">Full Thanksgiving Index</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  function showTnTab(index) {
+    const tabs = document.querySelectorAll('.tn-tab');
+    const buttons = document.querySelectorAll('.tn-tab-buttons button');
+    tabs.forEach(t => t.classList.remove('active'));
+    buttons.forEach(b => b.classList.remove('active'));
+    tabs[index].classList.add('active');
+    buttons[index].classList.add('active');
+  }
+</script>
