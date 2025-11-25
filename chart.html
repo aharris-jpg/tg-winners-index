@@ -65,15 +65,18 @@
   .tn-table-wrapper {
     border-radius: 10px;
     border: 1px solid #cbd5e1;
-    overflow: hidden;
+    overflow-x: auto;              /* enable horizontal scroll */
+    overflow-y: hidden;
     background: #ffffff;
     box-shadow: 0 2px 7px rgba(15, 23, 42, 0.06);
+    -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
   }
 
   table {
     width: 100%;
     border-collapse: collapse;
     font-size: 0.86rem;
+    min-width: 760px;              /* keep columns readable, scroll on small screens */
   }
 
   thead {
@@ -86,13 +89,13 @@
     font-size: 0.7rem;
     color: #6b7280;
     letter-spacing: 0.05em;
-    padding: 8px 10px;
+    padding: 7px 8px;              /* slightly tighter */
     border-bottom: 1px solid #e5e7eb;
     white-space: nowrap;
   }
 
   td {
-    padding: 8px 10px;
+    padding: 7px 8px;              /* slightly tighter */
     border-bottom: 1px solid #f3f4f6;
     white-space: nowrap;
   }
@@ -246,8 +249,11 @@
     .tn-tabs {
       font-size: 13px;
     }
+    table {
+      font-size: 0.8rem;  /* slightly smaller text on mobile */
+    }
     th, td {
-      padding: 7px 8px;
+      padding: 6px 6px;
     }
   }
 </style>
