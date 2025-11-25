@@ -25,6 +25,7 @@
     opacity: 0.85;
   }
 
+  /* Tab buttons */
   .tn-tab-buttons {
     display: inline-flex;
     border-radius: 999px;
@@ -52,6 +53,7 @@
     box-shadow: 0 0 0 1px #e5e7eb;
   }
 
+  /* Tabs */
   .tn-tab {
     display: none;
   }
@@ -59,6 +61,7 @@
     display: block;
   }
 
+  /* Table wrapper */
   .tn-table-wrapper {
     border-radius: 10px;
     border: 1px solid #cbd5e1;
@@ -122,6 +125,7 @@
     font-variant-numeric: tabular-nums;
   }
 
+  /* Rank badges */
   .rank-badge {
     font-weight: 600;
     font-size: 0.78rem;
@@ -159,6 +163,7 @@
     color: #b91c1c;
   }
 
+  /* Win% badge */
   .win-badge {
     display: inline-flex;
     align-items: center;
@@ -183,6 +188,7 @@
     background: linear-gradient(90deg, #f1f5f9 0%, #e5e7eb 100%);
   }
 
+  /* Point differential pill */
   .diff-pill {
     display: inline-flex;
     align-items: center;
@@ -204,7 +210,7 @@
     background: linear-gradient(90deg, #f1f5f9 0%, #e5e7eb 100%);
   }
 
-  /* Success Score pill */
+  /* Thanksgiving Success Score pill */
   .score-pill {
     display: inline-flex;
     align-items: center;
@@ -428,7 +434,7 @@
       </table>
     </div>
     <div class="note">
-      Thanksgiving Success Score is a 0–100 index combining win percentage, point differential, blowout wins (17+ points), and streak/consistency metrics. Higher scores indicate stronger long-term Thanksgiving performance.  
+      Thanksgiving Success Score is a 0–100 index combining win percentage, point differential, blowout wins (17+ points), and streak/consistency metrics. Values shown are rounded to one decimal place.  
       Source: Action Network — <a href="https://www.actionnetwork.com/general/thanksgiving-nfl-all-time-winners-index">Full Thanksgiving Index</a>
     </div>
   </div>
@@ -455,7 +461,7 @@
           <td>
             <div class="team-cell">
               <span class="team-name">Tampa Bay Buccaneers</span>
-              <span class="team-meta">1 Thanksgiving game</span>
+              <span class="team-meta">First Thanksgiving: 2006 • Latest: 2006</span>
             </div>
           </td>
           <td class="num">1</td>
@@ -470,7 +476,7 @@
           <td>
             <div class="team-cell">
               <span class="team-name">Cincinnati Bengals</span>
-              <span class="team-meta">1 Thanksgiving game</span>
+              <span class="team-meta">First Thanksgiving: 2010 • Latest: 2010</span>
             </div>
           </td>
           <td class="num">1</td>
@@ -485,7 +491,7 @@
           <td>
             <div class="team-cell">
               <span class="team-name">Seattle Seahawks</span>
-              <span class="team-meta">5 Thanksgiving games</span>
+              <span class="team-meta">First Thanksgiving: 1980 • Latest: 2023</span>
             </div>
           </td>
           <td class="num">5</td>
@@ -500,7 +506,7 @@
           <td>
             <div class="team-cell">
               <span class="team-name">Arizona Cardinals</span>
-              <span class="team-meta">13 Thanksgiving games</span>
+              <span class="team-meta">First Thanksgiving: 1930 • Latest: 2008</span>
             </div>
           </td>
           <td class="num">13</td>
@@ -515,7 +521,7 @@
           <td>
             <div class="team-cell">
               <span class="team-name">New York Jets</span>
-              <span class="team-meta">8 Thanksgiving games</span>
+              <span class="team-meta">First Thanksgiving: 1960 • Latest: 2012</span>
             </div>
           </td>
           <td class="num">8</td>
@@ -529,7 +535,7 @@
       </table>
     </div>
     <div class="note">
-      These five teams hold the lowest Thanksgiving Success Scores once win percentage, point margin, blowout wins and consistency metrics are combined. Rank 1 here marks the weakest overall Thanksgiving record in the index.  
+      These five teams have the lowest Thanksgiving Success Scores once win percentage, point margin, blowout wins and consistency metrics are combined. Rank 1 here marks the weakest overall Thanksgiving record in the index.  
       Source: Action Network — <a href="https://www.actionnetwork.com/general/thanksgiving-nfl-all-time-winners-index">Full Thanksgiving Index</a>
     </div>
   </div>
@@ -543,5 +549,58 @@
     buttons.forEach(b => b.classList.remove('active'));
     tabs[index].classList.add('active');
     buttons[index].classList.add('active');
+  }
+</script>
+
+<!-- Optional: Embed code panel -->
+<div class="tn-embed-container" style="max-width:900px;margin:22px auto 40px;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;">
+
+  <button id="embedToggleBtn"
+    style="
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:7px 14px;
+      border-radius:999px;
+      border:1px solid #cbd5e1;
+      background:#ffffff;
+      cursor:pointer;
+      font-size:13px;
+      color:#0f172a;
+      transition:0.15s ease;
+    "
+    onclick="toggleEmbedPanel()"
+  >
+    Get embed code
+    <span style="font-size:11px;opacity:.65;">▼</span>
+  </button>
+
+  <div id="embedPanel" style="display:none;margin-top:12px;">
+    <p style="font-size:12px;color:#6b7280;margin-bottom:4px;">
+      Copy and paste this into any article or webpage:
+    </p>
+
+    <pre style="
+      background:#f8fafc;
+      border:1px solid #e5e7eb;
+      padding:12px;
+      border-radius:8px;
+      font-size:12px;
+      overflow-x:auto;
+      white-space:pre-wrap;
+    "><code>&lt;iframe 
+  src="https://aharris-jpg.github.io/tg-winners-index/chart.html" 
+  width="100%" 
+  height="980" 
+  style="border:0;border-radius:8px;overflow:hidden;"&gt;
+&lt;/iframe&gt;</code></pre>
+  </div>
+
+</div>
+
+<script>
+  function toggleEmbedPanel() {
+    const panel = document.getElementById('embedPanel');
+    panel.style.display = (panel.style.display === 'block' ? 'none' : 'block');
   }
 </script>
